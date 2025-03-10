@@ -6,14 +6,22 @@ In real-world environments, a LiDAR point cloud registration method with robust 
 
 20250227 - Our paper has been accepted by CVPR'25!
 
+## Motivation
+
+<div align="center">
+<img src=assets\motivation.png>
+</div>
+
 ## Overview of UGP
 
 <div align="center">
-<img src=assets\arch.png>
+<img src=assets\pipeline.png>
 </div>
+
+## Installation
+
+Coming soon.
 
 ## Acknowlegdements
 
-We thank [FCGF](https://github.com/chrischoy/FCGF) for the wonderful baseline, [SC2-PCR](https://github.com/ZhiChen902/SC2-PCR) for a powerful and fast alternative registration algorithm.
-
-We would also like to thank [nuscenes-devkit](https://github.com/nutonomy/nuscenes-devkit) and [waymo-open-dataset](https://github.com/waymo-research/waymo-open-dataset) for the convenient dataset conversion codes.
+This codebase borrows from most notably [GeoTransformer](https://github.com/qinzheng93/GeoTransformer), [CoFiNet](https://github.com/haoyu94/Coarse-to-fine-correspondences), [PREDATOR](https://github.com/prs-eth/OverlapPredator), [D3Feat](https://github.com/XuyangBai/D3Feat.pytorch), [RPMNet](https://github.com/yewzijian/RPMNet) and [SuperGlue](https://github.com/magicleap/SuperGluePretrainedNetwork). Many thanks to the authors for generously sharing their codes!
