@@ -4,6 +4,10 @@ In real-world environments, a LiDAR point cloud registration method with robust 
 
 ## News
 
+20250405 - Our paper has been selected as a CVPR'25 Highlight!
+
+20250313 - Our paper is now available on [ArXiv](https://arxiv.org/abs/2503.10149)!
+
 20250227 - Our paper has been accepted by CVPR'25!
 
 ## Motivation
