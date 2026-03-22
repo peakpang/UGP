@@ -40,7 +40,10 @@ python setup.py build develop
 ```
 
 ## Pre-trained Models
-We provide pre-trained models and processed datasets in [Google Drive](https://drive.google.com/drive/folders/1XbwTou-bINwVy1RtdxNSUJ16Qlf-uPTw?usp=drive_link). Please download the latest weights and place them in the `ckpts` directory.
+```
+mkdir ckpts
+```
+We provide pre-trained models in [Google Drive](https://drive.google.com/drive/folders/1XbwTou-bINwVy1RtdxNSUJ16Qlf-uPTw?usp=drive_link). Please download the latest weights and place them in the `ckpts` directory.
 
 ## Data Preparation
 
