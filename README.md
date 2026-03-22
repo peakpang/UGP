@@ -24,7 +24,85 @@ In real-world environments, a LiDAR point cloud registration method with robust 
 
 ## Installation
 
-Coming soon.
+Please use the following command for installation.
+
+```bash
+# It is recommended to create a new environment
+conda create -n UGP python==3.8
+conda activate UGP
+
+# [Optional] If you are using CUDA 11.0 or newer, please install `torch==1.7.1+cu110`
+pip install torch==1.7.1+cu110 -f https://download.pytorch.org/whl/torch_stable.html
+
+# Install packages and other dependencies
+pip install -r requirements.txt
+python setup.py build develop
+```
+
+## Pre-trained Models
+We provide pre-trained models and processed datasets in [Google Drive](https://drive.google.com/drive/folders/1XbwTou-bINwVy1RtdxNSUJ16Qlf-uPTw?usp=drive_link). Please download the latest weights and place them in the `ckpts` directory.
+
+## Data Preparation
+
+We provide two ways to prepare the data for training and evaluation:
+
+### Option 1: Download our processed data directly
+
+You can also directly download our processed KITTI / nuScenes data from Google Drive.
+
+### Option 2: Download from the official websites
+
+#### KITTI
+
+Please download the KITTI Odometry dataset from the [KITTI official website](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), place it under `data/Kitti`, and run `data/Kitti/downsample_pcd.py` to generate the downsampled point clouds.
+
+
+#### nuScenes
+Please follow the [nuScenes official website](https://www.nuscenes.org/nuscenes#download) to download the lidar blobs (under file blobs) and metadata for the trainval and test splits in the Full dataset (v1.0) section. Only LiDAR scans and pose annotations are used.
+
+The original nuScenes data organization is not well suited for point cloud registration tasks, so we convert the LiDAR data into KITTI format for easier development and extension. Thanks to the tools provided by [nuscenes-devkit](https://github.com/nutonomy/nuscenes-devkit), this conversion requires only minimal modifications. Please place the downloaded nuScenes data under `data/nuscenes` and run `data/nuScenes/downsample_pcd.py` to generate the downsampled point clouds.
+
+
+## Training
+
+Use the following commands for training.
+
+```bash
+# Single-GPU training
+CUDA_VISIBLE_DEVICES=0 python trainval.py
+
+# Multi-GPU training
+CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node 4 trainval.py
+```
+
+
+## Testing
+
+Use the following commands for testing.
+
+```bash
+# Run inference with a trained checkpoint
+CUDA_VISIBLE_DEVICES=0 python test.py --snapshot=/Code/UGP/ckpts/XXX.pth.tar --distance=10 # 20, 30, 40
+
+# Evaluate with the LGR estimator
+CUDA_VISIBLE_DEVICES=0 python eval.py --method=lgr
+
+# Evaluate with the RANSAC estimator
+CUDA_VISIBLE_DEVICES=0 python eval.py --method=ransac --num_corr=50000
+```
+
+# Paper
+
+If you find this project useful, please consider citing:
+```bibtex
+    @inproceedings{zeng2025unlocking,
+        title={Unlocking Generalization Power in LiDAR Point Cloud Registration},
+        author={Zeng, Zhenxuan and Wu, Qiao and Zhang, Xiyu and Wu, Lin Yuanbo and An, Pei and Yang, Jiaqi and Wang, Ji and Wang, Peng},
+        booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+        pages={22244--22253},
+        year={2025}
+    }
+```
 
 ## Acknowlegdements
 
