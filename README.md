@@ -71,6 +71,10 @@ The original nuScenes data organization is not well suited for point cloud regis
 Use the following commands for training.
 
 ```bash
+cd ./experiments/UGP.kitti
+#or
+cd ./experiments/UGP.nuscenes
+
 # Single-GPU training
 CUDA_VISIBLE_DEVICES=0 python trainval.py
 
