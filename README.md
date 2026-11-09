@@ -107,11 +107,12 @@ CUDA_VISIBLE_DEVICES=0 python eval.py --method=ransac --num_corr=50000
 If you find this project useful, please consider citing:
 ```bibtex
     @inproceedings{zeng2025unlocking,
-        title={Unlocking Generalization Power in LiDAR Point Cloud Registration},
-        author={Zeng, Zhenxuan and Wu, Qiao and Zhang, Xiyu and Wu, Lin Yuanbo and An, Pei and Yang, Jiaqi and Wang, Ji and Wang, Peng},
-        booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
-        pages={22244--22253},
-        year={2025}
+      title={Unlocking generalization power in LiDAR point cloud registration},
+      author={Zeng, Zhenxuan and Wu, Qiao and Zhang, Xiyu and Wu, Lin Yuanbo and An, Pei and Yang, Jiaqi and Wang, Ji and Wang, Peng},
+      booktitle={2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      pages={22244--22253},
+      year={2025},
+      organization={IEEE}
     }
 ```
 
